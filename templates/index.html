@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Nayra Vizcaíno | Desarrollo Web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fuente -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+  
+  <nav class="nav">
+    <span class="logo">Nayra Vizcaíno</span>
+    <div>
+      <button id="theme-toggle" class="btn btn-small">🌙</button>
+      <a href="#contacto" class="btn btn-small">Contacto</a>
+    </div>
+  </nav>
+
+  <div class="hero-content fade-in">
+    <div class="hero-text">
+      <h1>Desarrollo web<br><span>claro, funcional y humano</span></h1>
+      <p>
+        Soy Nayra Vizcaíno, desarrolladora web freelance.
+        Creo webs y tiendas online pensadas para funcionar de verdad.
+      </p>
+      <div class="hero-buttons">
+        <a href="#servicios" class="btn">Servicios</a>
+        <a href="/proyectos" class="btn btn-outline">Proyectos</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="{{ url_for('static', filename='img/nayra.jpg') }}" alt="Nayra Vizcaíno">
+    </div>
+  </div>
+</header>
+
+<section id="servicios" class="section reveal">
+  <h2>Qué puedo hacer por ti</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Webs & Landings</h3>
+      <p>Diseño y desarrollo de webs claras, rápidas y responsive.</p>
+    </div>
+
+    <div class="card">
+      <h3>E-commerce</h3>
+      <p>Tiendas online con WordPress y WooCommerce bien hechas.</p>
+    </div>
+
+    <div class="card">
+      <h3>UX & Contenido</h3>
+      <p>Experiencia de usuario, formularios y estructura clara.</p>
+    </div>
+
+    <div class="card">
+      <h3>Soporte técnico</h3>
+      <p>Mantenimiento, mejoras y acompañamiento real.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="section reveal">
+  <h2>¿Hablamos?</h2>
+
+  <form method="POST" action="/contacto" class="contact-form">
+    <input type="text" name="nombre" placeholder="Tu nombre" required>
+    <input type="email" name="email" placeholder="Tu email" required>
+    <textarea name="mensaje" placeholder="Cuéntame tu idea" required></textarea>
+    <button type="submit" class="btn">Enviar mensaje</button>
+  </form>
+
+  {% if enviado %}
+    <p class="center success">¡Mensaje enviado correctamente! 💌</p>
+  {% endif %}
+</section>
+
+<footer>
+  <p>© 2026 · Nayra Vizcaíno · Desarrollo Web</p>
+</footer>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
